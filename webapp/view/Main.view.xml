@@ -1,0 +1,47 @@
+<mvc:View controllerName="vdl.com.br.exercicioapi.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+        </content>
+        <IconTabBar id="idIconTabBarFilter" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+            <items>
+                <IconTabFilter text="Termo de Pesquisa">
+                    <content>
+                        <SearchField search=".onSearch" width="100%" />                
+                    </content>
+                </IconTabFilter>    
+            </items>
+        </IconTabBar>
+        <IconTabBar id="idIconTabBarMulti" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+            <items>
+                <IconTabFilter id="cryptoTabFilter" text="Cryptos" icon="sap-icon://money-bills" iconColor="Positive" count="0">
+                    <List headerText="" id="cryptoList" items="{DataModel>/cryptos}">
+                        <CustomListItem>
+                            <HBox>
+                                <Image src="{DataModel>large}" width='5em' />
+                                <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+                                    <Link text="{DataModel>name}" href="https://www.coingecko.com/pt/moedas/{DataModel>id}" target="_blank" />
+                                    <Label text="{DataModel>symbol}" />
+                                </VBox>
+                            </HBox>
+                        </CustomListItem>
+                    </List>
+                </IconTabFilter>
+               <IconTabSeparator icon="sap-icon://vertical-grip" />
+                <IconTabFilter id="dexTabFilter" text="Exchanges" icon="sap-icon://badge" iconColor="Critical" count="0">
+                    <List headerText="" id="exchangeList" items="{DataModel>/dexs}">
+                        <CustomListItem>
+                            <HBox>
+                                <Image src="{DataModel>large}" width='5em' />
+                                <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+                                    <Label text="{DataModel>name}" />
+                                </VBox>
+                            </HBox>
+                        </CustomListItem>
+                    </List>
+                </IconTabFilter>
+            </items>
+        </IconTabBar>
+    </Page>
+</mvc:View>
