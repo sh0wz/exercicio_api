@@ -11,7 +11,7 @@ sap.ui.define([
 
         return Controller.extend("vdl.com.br.exercicioapi.controller.Main", {
             onInit: function () {
-
+                //
                 var dataList = {
                     cryptos: [],
                     dexs: []
